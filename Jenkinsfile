@@ -2,7 +2,7 @@ node ('master') {
   checkout scm
   stage ('Build') {
     withMaven(maven: 'M3') {
-      if (usUnix()) {
+      if (useUnix()) {
         sh lavel: '', script: 'mvn -Dmaven.test.failure.ignore clean package'
       } else {
         bat label: '', script: 'mvn -Dmaven.test.failure.ignore clean package'
